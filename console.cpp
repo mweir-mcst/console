@@ -1,3 +1,8 @@
+/*
+ * Written by Matthew Weir (mweir-mcst)
+ * Some code taken from Darryl DiGiovanna
+ */
+
 #include <iostream>
 #include <string>
 #include <regex>
@@ -39,7 +44,7 @@ bool stod_if_valid(std::string check, double& converted) {
     if (number_of_dashes > 0 && check.at(0) != '-') return false;
 
     // Only allow 1 dot
-    if (std::count(check.begin(), check.end(), ".") > 1) return false;
+    if (std::count(check.begin(), check.end(), '.') > 1) return false;
 
     // Try converting, return false if it fails
     try {
