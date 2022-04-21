@@ -1,3 +1,8 @@
+/*
+ * Written by Matthew Weir (mweir-mcst)
+ * Some code taken from Darryl DiGiovanna
+ */
+
 #include <string>
 #pragma once
 
