@@ -34,8 +34,8 @@ bool stod_if_valid(std::string check, double& converted) {
     // Remove whitespace
     check = std::regex_replace(check, std::regex("\\s+"), "");
 
-    // Make sure string only contains int-safe characters
-    if (check.find_first_not_of("-0123456789") != std::string::npos) return false;
+    // Make sure string only contains double-safe characters
+    if (check.find_first_not_of("-0123456789.") != std::string::npos) return false;
 
     int number_of_dashes = (int) std::count(check.begin(), check.end(), '-');
     // Only allow 1 dash
