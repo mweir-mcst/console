@@ -1,11 +1,10 @@
 #include <iostream>
-#include <limits>
 #include "console.h"
 
 using namespace std;
 
 int main() {
-    string name = prompt_string("Enter name: ");
+    string name = prompt_string_choices("Enter name: ", {"Matthew", "Xander", "Steve"});
     int id = prompt_int_min("Enter ID: ", 0);
     double balance = prompt_double_min("Enter balance: ", 0);
 

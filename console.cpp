@@ -6,9 +6,10 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include <vector>
 #include "console.h"
 
-bool stoi_if_valid(std::string check, int& converted) {
+bool stoi_if_valid(std::string check, int & converted) {
     // Remove whitespace
     check = std::regex_replace(check, std::regex("\\s+"), "");
 
@@ -30,7 +31,7 @@ bool stoi_if_valid(std::string check, int& converted) {
     }
 }
 
-bool stod_if_valid(std::string check, double& converted) {
+bool stod_if_valid(std::string check, double & converted) {
     // Remove whitespace
     check = std::regex_replace(check, std::regex("\\s+"), "");
 
@@ -55,7 +56,7 @@ bool stod_if_valid(std::string check, double& converted) {
     }
 }
 
-int prompt_int(const std::string& prompt) {
+int prompt_int(const std::string & prompt) {
     int value;
     std::string response;
 
@@ -68,7 +69,7 @@ int prompt_int(const std::string& prompt) {
     return value;
 }
 
-int prompt_int_min_max(const std::string& prompt, const int min, const int max) {
+int prompt_int_min_max(const std::string & prompt, const int min, const int max) {
     int value;
     do {
         value = prompt_int(prompt);
@@ -76,7 +77,7 @@ int prompt_int_min_max(const std::string& prompt, const int min, const int max) 
     return value;
 }
 
-int prompt_int_min(const std::string& prompt, const int min) {
+int prompt_int_min(const std::string & prompt, const int min) {
     int value;
     do {
         value = prompt_int(prompt);
@@ -84,7 +85,7 @@ int prompt_int_min(const std::string& prompt, const int min) {
     return value;
 }
 
-int prompt_int_max(const std::string& prompt, const int max) {
+int prompt_int_max(const std::string & prompt, const int max) {
     int value;
     do {
         value = prompt_int(prompt);
@@ -92,7 +93,7 @@ int prompt_int_max(const std::string& prompt, const int max) {
     return value;
 }
 
-double prompt_double(const std::string& prompt) {
+double prompt_double(const std::string & prompt) {
     double value;
     std::string response;
     do {
@@ -102,7 +103,7 @@ double prompt_double(const std::string& prompt) {
     return value;
 }
 
-double prompt_double_min_max(const std::string& prompt, const double min, const double max) {
+double prompt_double_min_max(const std::string & prompt, const double min, const double max) {
     double value;
     do {
         value = prompt_double(prompt);
@@ -110,7 +111,7 @@ double prompt_double_min_max(const std::string& prompt, const double min, const 
     return value;
 }
 
-double prompt_double_min(const std::string& prompt, const double min) {
+double prompt_double_min(const std::string & prompt, const double min) {
     double value;
     do {
         value = prompt_double(prompt);
@@ -118,7 +119,7 @@ double prompt_double_min(const std::string& prompt, const double min) {
     return value;
 }
 
-double prompt_double_max(const std::string& prompt, const double max) {
+double prompt_double_max(const std::string & prompt, const double max) {
     double value;
     do {
         value = prompt_double(prompt);
@@ -126,9 +127,18 @@ double prompt_double_max(const std::string& prompt, const double max) {
     return value;
 }
 
-std::string prompt_string(const std::string& prompt) {
+std::string prompt_string(const std::string & prompt) {
     std::string value;
     std::cout << prompt;
     std::getline(std::cin, value);
+    return value;
+}
+
+std::string prompt_string_choices(const std::string & prompt, const std::initializer_list<std::string> choices) {
+    std::string value;
+    do {
+        std::cout << prompt;
+        std::getline(std::cin, value);
+    } while (std::find(std::begin(choices), std::end(choices), value) == std::end(choices));
     return value;
 }
