@@ -3,6 +3,8 @@
  * Some code taken from Darryl DiGiovanna
  */
 
+#ifndef CONSOLE_H
+#define CONSOLE_H
 #include <string>
 #include <vector>
 #pragma once
@@ -22,3 +24,5 @@ double prompt_double_max(const std::string &, double);
 
 std::string prompt_string(const std::string &);
 std::string prompt_string_choices(const std::string &, std::initializer_list<std::string>);
+
+#endif
